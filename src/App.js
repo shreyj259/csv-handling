@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { DragDropContext } from "react-beautiful-dnd";
+import MainLayout from "./components/MainLayout";
+
 
 function App() {
+  const [source,setSource]=useState();
+  const [destination,setDestination]=useState();
+
+  const dragHandler=(result)=>{
+    const {source,destination}=result;
+    setSource(source);
+    setDestination(destination);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DragDropContext onDragEnd={dragHandler}>
+      <MainLayout source={source} destination={destination}/>
+    </DragDropContext>
   );
 }
 
