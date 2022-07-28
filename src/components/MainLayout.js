@@ -69,8 +69,6 @@ const MainLayout = ({ source, destination }) => {
 
   useEffect(() => {
     handleDrag();
-    console.log(show);
-    console.log(sideBar);
   }, [source, destination]);
 
   useEffect(() => {
@@ -98,7 +96,7 @@ const MainLayout = ({ source, destination }) => {
 
       <div className="right-box">
         <ShowBar show={show}/>
-        <TableComp show={show} data={data} />
+        {show.length>0 && <TableComp show={show} data={data} />}
       </div>
     </div>
   );

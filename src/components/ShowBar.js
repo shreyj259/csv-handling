@@ -14,7 +14,7 @@ const ShowBar = ({show}) => {
               >
                 {show &&
                   show.map((item, index) => (
-                    <Draggable draggableId={`item-${index}`} index={index}>
+                    <Draggable draggableId={item} key={item} index={index}>
                       {(provided) => (
                         <div
                           className="show-item"

@@ -8,7 +8,7 @@ const TableComp = ({show,data}) => {
             show.length!=0 && <table>
                <tr> {show.map(item=>(<th>{item}</th>))}</tr>
                {data.map((item)=>(
-                <tr>{show.map((key)=>(<td>{item[key]}</td>))}</tr>
+                <tr>{show.map((key)=>(item[key]&&<td>{item[key]}</td>))}</tr>
                ))}
             </table>
         }
